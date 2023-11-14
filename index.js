@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const morgan = require("morgan");
 const dotenv = require("dotenv");
 const cors = require("cors");
 
@@ -14,6 +15,10 @@ mongoose.connect(process.env.MONGO_URL, {
     .then(() => console.log('Connected to MongoDB'))
     .catch((err) => {console.error(err);});
 
+
+//MIDDLEWARES
+app.use(express.json());
+app.use(morgan("common"));
 
 
 app.listen("6000", () =>{
