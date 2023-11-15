@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const authRoute = require("./routes/auth");
+const userRoute = require("./routes/users");
 
 
 app.use(cors());
@@ -24,6 +25,7 @@ app.use(morgan("common"));
 
 //ROUTERS
 app.use("/api/auth", authRoute);
+app.use("/api/users", userRoute);
 
 app.listen("6000", () =>{
     console.log('Backend server is running');
